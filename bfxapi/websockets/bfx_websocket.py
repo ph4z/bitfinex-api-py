@@ -356,7 +356,7 @@ class BfxWebsocket(GenericWebsocket):
     async def _position_close_handler(self, data):
         cp = self.positions._update_from_event(data)
         self.positions._close_position(data)
-        self._emit('position_close', data)
+        self._emit('position_close', cp)
         self.logger.info("Position close: {}".format(cp))
 
     async def _position_new_handler(self, data):
